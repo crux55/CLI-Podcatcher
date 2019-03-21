@@ -74,3 +74,7 @@ abgt:
   url: "http://static.aboveandbeyond.nu/grouptherapy/podcast.xml"
   amount: 1
   folderName: abgt
+pa:
+  url: "http://progressiveastronaut.com/category/mixes/exclusive-podcast/feed/"
+  amount: 1
+  folderName: progressiveAstronaut
