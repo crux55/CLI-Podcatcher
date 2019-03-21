@@ -1,0 +1,93 @@
+import requests
+import feedparser
+import sys
+import yaml
+import os
+
+from pyPodcastParser.Podcast import Podcast
+import requests
+
+from podcastEntry import PodcastEntry
+from logger import Logger
+from pathlib import Path
+from config_reader import Config
+
+logger = Logger()
+config = Config()
+
+
+def getPodcast(fileName, url):
+    if Path(fileName).exists():
+        logger.log("File %s already exists; skipping" % fileName)
+        return
+    tmpFileName = fileName + ".part"
+    with open(tmpFileName, "wb") as f:
+        logger.log("Downloading to %s" % fileName)
+        response = requests.get(link, stream=True)
+        total_length = response.headers.get('content-length')
+
+        if total_length is None: # no content length header
+            f.write(response.content)
+        else:
+            dl = 0
+            total_length = int(total_length)
+            lastDone = -1
+            for data in response.iter_content(chunk_size=4096):
+                dl += len(data)
+                f.write(data)
+                done = int(100 * dl / total_length)
+                if done > lastDone:
+                    logger.log("%s done" % done)
+                    lastDone = done
+                sys.stdout.write("\r[%s done]" % (done) )
+                sys.stdout.flush()
+            os.rename(tmpFileName, fileName)
+
+
+def getListOfPodcasts():
+    logger.log("Getting pod cast list")
+    pdcsts = []
+    stream = open("podcasts.yml", "r")
+    docs = yaml.safe_load_all(stream)
+    for doc in docs:
+        for key,value in doc.items():
+            pdcsts.append(PodcastEntry(value["amount"], value["url"], value["folderName"]))
+    return pdcsts
+
+
+if __name__ == '__main__':
+    podcasts = getListOfPodcasts()
+    for podcastIndex in range(len(podcasts)):
+        podcast = podcasts[podcastIndex]
+        logger.log("Found podcast with URL %s and amount %d" % (podcast.link, podcast.amount))
+
+        postcastEntry = feedparser.parse(podcast.link)
+        response = requests.get(podcast.link)
+        show = Podcast(response.content)
+
+        numberToGet = 0
+        if podcast.amount > 0:
+            numberToGet = podcast.amount
+        elif podcast.amount < 0:
+            numberToGet = len(postcastEntry.entries)
+        else:
+            logger.log("Requested no podcasts to be downloaded. This entry is considered a place holder and is ignored")
+        logger.log("Downloading %d episode(s)" % numberToGet)
+        for i in range(numberToGet):
+            episode = show.items[i]
+            link = episode.enclosure_url
+            title = episode.title
+            summary = episode.itunes_summary
+
+            if config.MAKE_FOLDERS and not Path(config.BASE_URI + podcast.folderName).exists():
+                logger.log("Path does not exist, creating")
+                os.makedirs(config.BASE_URI + podcast.folderName)
+            elif not config.MAKE_FOLDERS and not Path(config.BASE_URI + podcast.folderName).exists():
+                logger.log("Error: Folder did not exist and can not be created")
+                continue
+
+            fileExtension = link.rpartition('.')[2]
+            fileName = config.BASE_URI + podcast.folderName + '/' + title + '.' + fileExtension
+            logger.log("Found episode with title %s" % title)
+            logger.log(fileName)
+            getPodcast(fileName, link)

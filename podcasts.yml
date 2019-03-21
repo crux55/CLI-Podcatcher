@@ -1,0 +1,8 @@
+pureTrance:
+  url: "https://www.thisisdistorted.com/repository/xml/SolarstonePureTrance1463143743.xml"
+  amount: 1
+  folderName: pure_trance
+fsoe:
+  url: "http://feeds.soundcloud.com/users/soundcloud:users:9910169/sounds.rss"
+  amount: 1
+  folderName: fsoe
