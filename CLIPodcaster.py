@@ -94,6 +94,8 @@ if __name__ == '__main__':
             title = episode.title
             summary = episode.itunes_summary
 
+            logger.log("Episode info: [title:%s, link:%s]" % (title, link))
+
             if config.MAKE_FOLDERS and not Path(config.BASE_URI + podcast.folderName).exists():
                 logger.log("Path does not exist, creating")
                 os.makedirs(config.BASE_URI + podcast.folderName)
@@ -105,4 +107,4 @@ if __name__ == '__main__':
             fileName = config.BASE_URI + podcast.folderName + '/' + title + '.' + fileExtension
             logger.log("Found episode with title %s" % title)
             logger.log(fileName)
-            #getPodcast(fileName, link)
+            getPodcast(fileName, link)
