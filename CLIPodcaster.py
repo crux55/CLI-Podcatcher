@@ -1,5 +1,3 @@
-import requests
-import feedparser
 import sys
 import yaml
 import os
@@ -70,7 +68,6 @@ if __name__ == '__main__':
         podcast = podcasts[podcastIndex]
         logger.log("Found podcast with URL %s and amount %d" % (podcast.link, podcast.amount))
 
-        postcastEntry = feedparser.parse(podcast.link)
         response = requests.get(podcast.link)
         show = Podcast(response.content)
 
@@ -78,7 +75,7 @@ if __name__ == '__main__':
         if podcast.amount > 0:
             numberToGet = podcast.amount
         elif podcast.amount < 0:
-            numberToGet = len(postcastEntry.entries)
+            numberToGet = len(show.items)
         else:
             logger.log("Requested no podcasts to be downloaded. This entry is considered a place holder and is ignored")
         logger.log("Downloading %d episode(s)" % numberToGet)
