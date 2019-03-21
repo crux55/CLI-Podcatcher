@@ -50,8 +50,17 @@ def getListOfPodcasts():
     stream = open("podcasts.yml", "r")
     docs = yaml.safe_load_all(stream)
     for doc in docs:
-        for key,value in doc.items():
-            pdcsts.append(PodcastEntry(value["amount"], value["url"], value["folderName"]))
+        for key, value in doc.items():
+            if "offset" not in value:
+                voffset = 1
+            else:
+                #todo check lower limit
+                voffset = value["offset"]
+            if "fromStart" not in value:
+                fromStart = False
+            else:
+                fromStart = value["fromStart"]
+            pdcsts.append(PodcastEntry(value["amount"], value["url"], value["folderName"], voffset, fromStart))
     return pdcsts
 
 
@@ -73,7 +82,16 @@ if __name__ == '__main__':
         else:
             logger.log("Requested no podcasts to be downloaded. This entry is considered a place holder and is ignored")
         logger.log("Downloading %d episode(s)" % numberToGet)
-        for i in range(numberToGet):
+
+        if podcast.fromStart:
+            show.items.reverse()
+
+        offSet = 1
+
+        if podcast.offset:
+            offSet = podcast.offset
+
+        for i in range((offSet - 1), numberToGet + (offSet - 1)):
             episode = show.items[i]
             link = episode.enclosure_url
             title = episode.title
@@ -90,4 +108,4 @@ if __name__ == '__main__':
             fileName = config.BASE_URI + podcast.folderName + '/' + title + '.' + fileExtension
             logger.log("Found episode with title %s" % title)
             logger.log(fileName)
-            getPodcast(fileName, link)
+            #getPodcast(fileName, link)

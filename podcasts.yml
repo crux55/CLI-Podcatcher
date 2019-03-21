@@ -6,3 +6,71 @@ fsoe:
   url: "http://feeds.soundcloud.com/users/soundcloud:users:9910169/sounds.rss"
   amount: 1
   folderName: fsoe
+magicIsland:
+  url: "https://www.thisisdistorted.com/repository/xml/1421850521.xml"
+  amount: 1
+  folderName: magicIsland
+anjunaDeep:
+  url: "http://static.anjunadeep.com/edition/podcast.xml"
+  amount: 1
+  folderName: anjunaDeep
+onlySilk:
+  url: "http://www.onlysilkradio.com/feed"
+  amount: 1
+  folderName: onlySilk
+silkRadio:
+  url: "http://www.silkmusicshowcase.com/feed/"
+  amount: 1
+  folderName: silkRadio
+refreshRadio:
+  url: "http://feed.podbean.com/solidstone/feed.xml"
+  amount: 1
+  folderName: refreshRadio
+futilityCloset:
+  url: "https://futilitycloset.libsyn.com/rss"
+  amount: 1
+  folderName: futilityCloset
+chilloutLounge:
+  url: "http://thechilloutloungemix.libsyn.com/rss"
+  amount: 1
+  folderName: chilloutLounge
+aHistoryOfWWII:
+  url: "http://feeds.megaphone.fm/history-of-world-war-ii"
+  amount: 1
+  folderName: aHistoryOfWWII
+  fromStart: true
+  offset: 13
+soloSweetIbiza:
+  url: "http://www.music-zone.es/PodcastSSI/podcast_SSI.xml"
+  amount: 1
+  folderName: soloSweetIbiza
+vonyc:
+  url: "https://www.thisisdistorted.com/repository/xml/paulvandyk1446481004.xml"
+  amount: 1
+  folderName: vonuyc
+constellation:
+  url: "http://feeds.soundcloud.com/users/soundcloud:users:9245476/sounds.rss"
+  amount: 1
+  folderName: consteallation
+patterns:
+  url: "http://feeds.soundcloud.com/users/soundcloud:users:241200/sounds.rss"
+  amount: 1
+  folderName: patterns
+parallels:
+  url: "http://feeds.feedburner.com/monoverseradio"
+  amount: 1
+  folderName: parallels
+crusades:
+  url: "http://historyofthecrusades.podomatic.com/rss2.xml"
+  amount: 1
+  folderName: historyOfTheCrusades
+  fromStart: true
+  offset: 13
+wakeYourMind:
+  url: "https://cosmic-gate.de//podcast/wym.xml"
+  amount: 1
+  folderName: wakeYourMind
+abgt:
+  url: "http://static.aboveandbeyond.nu/grouptherapy/podcast.xml"
+  amount: 1
+  folderName: abgt
