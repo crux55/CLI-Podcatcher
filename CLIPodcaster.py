@@ -10,8 +10,12 @@ from logger import Logger
 from pathlib import Path
 from config_reader import Config
 
+from pprint import pprint
+
 logger = Logger()
 config = Config()
+
+downloadedFiles = []
 
 
 def getPodcast(fileName, url):
@@ -40,6 +44,7 @@ def getPodcast(fileName, url):
                 sys.stdout.write("\r[%s done]" % (done) )
                 sys.stdout.flush()
             os.rename(tmpFileName, fileName)
+            downloadedFiles.append(fileName)
 
 
 def getListOfPodcasts():
@@ -65,13 +70,15 @@ def getListOfPodcasts():
 if __name__ == '__main__':
     podcasts = getListOfPodcasts()
     for podcastIndex in range(len(podcasts)):
+        offSet = 1
+        numberToGet = 0
+
         podcast = podcasts[podcastIndex]
         logger.log("Found podcast with URL %s and amount %d" % (podcast.link, podcast.amount))
 
         response = requests.get(podcast.link)
         show = Podcast(response.content)
 
-        numberToGet = 0
         if podcast.amount > 0:
             numberToGet = podcast.amount
         elif podcast.amount < 0:
@@ -83,7 +90,6 @@ if __name__ == '__main__':
         if podcast.fromStart:
             show.items.reverse()
 
-        offSet = 1
 
         if podcast.offset:
             offSet = podcast.offset
@@ -93,6 +99,12 @@ if __name__ == '__main__':
             link = episode.enclosure_url
             title = episode.title.replace("–", "-")# replace utf-8 symbol (ndash) to ascii (-)
             summary = episode.itunes_summary
+
+            if link is None:
+                logger.log("An issue had been found whereby this episode has no link to a file. "
+                           "It may be a section used for a description. Please white list this"
+                           "%s" % vars(episode))
+                continue
 
             logger.log("Episode info: [title:%s, link:%s]" % (title.encode('utf8'), link.encode('utf8')))
 
