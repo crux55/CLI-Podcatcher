@@ -7,5 +7,5 @@ class Logger:
         logging.basicConfig(filename='example.log', level=logging.DEBUG)
 
     def log(self, message):
-        print(message.encode('utf-8'))
+        print(message)
         logging.info(message)

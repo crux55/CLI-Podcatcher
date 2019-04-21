@@ -1,7 +1,7 @@
 from __future__ import unicode_literals
 import youtube_dl
 import yaml
-
+import sqlite3
 from youtubeEntity import YoutubeEntity
 
 class YoutubeDL:
@@ -11,6 +11,11 @@ class YoutubeDL:
         self.y = "y"
 
     def get(self):
+        # for score, recording_id, title, artist in acoustid.match("25H18MUzMh", "Quetzalli-vdSZvpjxDXY.mp3"):
+        #     print(score)
+        #     print(recording_id)
+        #     print(title)
+        #     print(artist)
         infoOptions = {
             'simulate': True,
         }

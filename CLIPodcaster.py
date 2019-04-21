@@ -108,7 +108,7 @@ if __name__ == '__main__':
                            "%s" % vars(episode))
                 continue
 
-            logger.log("Episode info: [title:%s, link:%s]" % (title.encode('utf8'), link.encode('utf8')))
+            logger.log("Episode info: [title:%s, link:%s]" % (title, link))
 
             if config.MAKE_FOLDERS and not Path(config.BASE_URI + podcast.folderName).exists():
                 logger.log("Path does not exist, creating")
@@ -118,7 +118,8 @@ if __name__ == '__main__':
                 continue
 
             fileExtension = link.rpartition('.')[2]
-            fileName = config.BASE_URI + podcast.folderName + '/' + str(title.encode('utf8')) + '.' + fileExtension
-            logger.log("Found episode with title %s" % str(title.encode('utf8')))
+            fileName = config.BASE_URI + podcast.folderName + '/' + str(title) + '.' + fileExtension
+            logger.log("Found episode with title %s" % str(title))
             logger.log(fileName)
+            exit(0)
             getPodcast(fileName, link)
