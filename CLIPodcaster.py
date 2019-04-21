@@ -121,5 +121,4 @@ if __name__ == '__main__':
             fileName = config.BASE_URI + podcast.folderName + '/' + str(title) + '.' + fileExtension
             logger.log("Found episode with title %s" % str(title))
             logger.log(fileName)
-            exit(0)
             getPodcast(fileName, link)
