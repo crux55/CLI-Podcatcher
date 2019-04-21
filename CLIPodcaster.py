@@ -10,6 +10,8 @@ from logger import Logger
 from pathlib import Path
 from config_reader import Config
 
+from youtubedl import YoutubeDL
+
 from pprint import pprint
 
 logger = Logger()
@@ -97,7 +99,7 @@ if __name__ == '__main__':
         for i in range((offSet - 1), numberToGet + (offSet - 1)):
             episode = show.items[i]
             link = episode.enclosure_url
-            title = episode.title.replace("–", "-")# replace utf-8 symbol (ndash) to ascii (-)
+            title = episode.title.replace("–", "-").encode("utf-8")# replace utf-8 symbol (ndash) to ascii (-)
             summary = episode.itunes_summary
 
             if link is None:
