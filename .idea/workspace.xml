@@ -87,7 +87,11 @@
       </file>
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/podcasts.yml">
-          <provider selected="true" editor-type-id="text-editor" />
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="300">
+              <caret line="20" selection-start-line="20" selection-end-line="79" selection-end-column="34" />
+            </state>
+          </provider>
         </entry>
       </file>
     </leaf>
@@ -173,7 +177,7 @@
     <property name="GO_FMT" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1555885549093" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1555885808718" />
     <property name="go.gopath.indexing.explicitly.defined" value="true" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
@@ -255,7 +259,7 @@
       <workItem from="1554591043416" duration="144000" />
       <workItem from="1554638631817" duration="700000" />
       <workItem from="1554640931412" duration="3634000" />
-      <workItem from="1555841375531" duration="9171000" />
+      <workItem from="1555841375531" duration="9275000" />
     </task>
     <task id="LOCAL-00001" summary="Added the framework to support youtube playlists">
       <created>1554640837782</created>
@@ -313,11 +317,18 @@
       <option name="project" value="LOCAL" />
       <updated>1555884722392</updated>
     </task>
-    <option name="localTasksCounter" value="9" />
+    <task id="LOCAL-00009" summary="Only adding podcast with error">
+      <created>1555885568219</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1555885568219</updated>
+    </task>
+    <option name="localTasksCounter" value="10" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="40790000" />
+    <option name="totallyTimeSpent" value="40894000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="0" width="1440" height="900" extended-state="0" />
@@ -368,7 +379,8 @@
     <MESSAGE value="Oh god this encoding is a bitch" />
     <MESSAGE value="Reverting encoding to none" />
     <MESSAGE value="removing hard and fast exit" />
-    <option name="LAST_COMMIT_MESSAGE" value="removing hard and fast exit" />
+    <MESSAGE value="Only adding podcast with error" />
+    <option name="LAST_COMMIT_MESSAGE" value="Only adding podcast with error" />
   </component>
   <component name="editorHistoryManager">
     <entry file="file://$PROJECT_DIR$/podcastEntry.py">
@@ -448,7 +460,11 @@
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/podcasts.yml">
-      <provider selected="true" editor-type-id="text-editor" />
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="300">
+          <caret line="20" selection-start-line="20" selection-end-line="79" selection-end-column="34" />
+        </state>
+      </provider>
     </entry>
   </component>
   <component name="masterDetails">
