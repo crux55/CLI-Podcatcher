@@ -98,8 +98,8 @@ if __name__ == '__main__':
 
         for i in range((offSet - 1), numberToGet + (offSet - 1)):
             episode = show.items[i]
-            link = episode.enclosure_url
-            title = episode.title.replace("–", "-")# replace utf-8 symbol (ndash) to ascii (-)
+            link = bytes.decode(episode.enclosure_url.encode('utf8'))
+            title = bytes.decode(episode.title.replace("–", "-").encode('utf8'))# replace utf-8 symbol (ndash) to ascii (-)
             summary = episode.itunes_summary
 
             if link is None:
