@@ -41,10 +41,10 @@ def getPodcast(fileName, url):
                 f.write(data)
                 done = int(100 * dl / total_length)
                 if done > lastDone:
-                    logger.log("%s done" % done)
+                    #logger.log("%s done" % done)
                     lastDone = done
-                sys.stdout.write("\r[%s done]" % (done) )
-                sys.stdout.flush()
+                #sys.stdout.write("\r[%s done]" % (done) )
+                #sys.stdout.flush()
             os.rename(tmpFileName, fileName)
             downloadedFiles.append(fileName)
 
@@ -98,6 +98,7 @@ if __name__ == '__main__':
 
         for i in range((offSet - 1), numberToGet + (offSet - 1)):
             episode = show.items[i]
+            print(episode.enclosure_url)
             link = episode.enclosure_url.encode('ascii', 'ignore').decode('ascii')
             title = episode.title.replace("–", "-").encode('ascii', 'ignore').decode('ascii')
             summary = episode.itunes_summary
