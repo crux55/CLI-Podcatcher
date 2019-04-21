@@ -1,12 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="fa4d7528-da53-49e7-b3b0-0ba47174a7cf" name="Default Changelist" comment="Added the framework to support youtube playlists">
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+    <list default="true" id="fa4d7528-da53-49e7-b3b0-0ba47174a7cf" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/CLIPodcaster.py" beforeDir="false" afterPath="$PROJECT_DIR$/CLIPodcaster.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/logger.py" beforeDir="false" afterPath="$PROJECT_DIR$/logger.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/youtubedl.py" beforeDir="false" afterPath="$PROJECT_DIR$/youtubedl.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/podcasts.yml" beforeDir="false" afterPath="$PROJECT_DIR$/podcasts.yml" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -19,11 +16,11 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/CLIPodcaster.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="167">
-              <caret line="110" column="73" selection-start-line="110" selection-start-column="73" selection-end-line="110" selection-end-column="73" />
+            <state relative-caret-position="362">
+              <caret line="122" column="32" selection-start-line="122" selection-start-column="32" selection-end-line="122" selection-end-column="32" />
               <folding>
                 <element signature="e#0#10#0" expanded="true" />
               </folding>
@@ -88,13 +85,9 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/podcasts.yml">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="195">
-              <caret line="64" column="11" selection-start-line="64" selection-start-column="11" selection-end-line="64" selection-end-column="11" />
-            </state>
-          </provider>
+          <provider selected="true" editor-type-id="text-editor" />
         </entry>
       </file>
     </leaf>
@@ -142,13 +135,13 @@
         <option value="$PROJECT_DIR$/config_reader.py" />
         <option value="$PROJECT_DIR$/config.yml" />
         <option value="$PROJECT_DIR$/podcastEntry.py" />
-        <option value="$PROJECT_DIR$/podcasts.yml" />
         <option value="$PROJECT_DIR$/youtubeEntity.py" />
         <option value="$PROJECT_DIR$/youtube-dl" />
         <option value="$PROJECT_DIR$/Emailer.py" />
         <option value="$PROJECT_DIR$/youtubedl.py" />
         <option value="$PROJECT_DIR$/logger.py" />
         <option value="$PROJECT_DIR$/CLIPodcaster.py" />
+        <option value="$PROJECT_DIR$/podcasts.yml" />
       </list>
     </option>
   </component>
@@ -180,7 +173,7 @@
     <property name="GO_FMT" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1555884270348" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1555885549093" />
     <property name="go.gopath.indexing.explicitly.defined" value="true" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
@@ -262,7 +255,7 @@
       <workItem from="1554591043416" duration="144000" />
       <workItem from="1554638631817" duration="700000" />
       <workItem from="1554640931412" duration="3634000" />
-      <workItem from="1555841375531" duration="8721000" />
+      <workItem from="1555841375531" duration="9171000" />
     </task>
     <task id="LOCAL-00001" summary="Added the framework to support youtube playlists">
       <created>1554640837782</created>
@@ -306,11 +299,25 @@
       <option name="project" value="LOCAL" />
       <updated>1555856021327</updated>
     </task>
-    <option name="localTasksCounter" value="7" />
+    <task id="LOCAL-00007" summary="Reverting encoding to none">
+      <created>1555884345109</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1555884345109</updated>
+    </task>
+    <task id="LOCAL-00008" summary="removing hard and fast exit">
+      <created>1555884722392</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1555884722392</updated>
+    </task>
+    <option name="localTasksCounter" value="9" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="40340000" />
+    <option name="totallyTimeSpent" value="40790000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="0" width="1440" height="900" extended-state="0" />
@@ -359,7 +366,9 @@
     <MESSAGE value="adding utf-8 encoding" />
     <MESSAGE value="more utf8 encoding" />
     <MESSAGE value="Oh god this encoding is a bitch" />
-    <option name="LAST_COMMIT_MESSAGE" value="Oh god this encoding is a bitch" />
+    <MESSAGE value="Reverting encoding to none" />
+    <MESSAGE value="removing hard and fast exit" />
+    <option name="LAST_COMMIT_MESSAGE" value="removing hard and fast exit" />
   </component>
   <component name="editorHistoryManager">
     <entry file="file://$PROJECT_DIR$/podcastEntry.py">
@@ -428,22 +437,18 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/podcasts.yml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="195">
-          <caret line="64" column="11" selection-start-line="64" selection-start-column="11" selection-end-line="64" selection-end-column="11" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/CLIPodcaster.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="167">
-          <caret line="110" column="73" selection-start-line="110" selection-start-column="73" selection-end-line="110" selection-end-column="73" />
+        <state relative-caret-position="362">
+          <caret line="122" column="32" selection-start-line="122" selection-start-column="32" selection-end-line="122" selection-end-column="32" />
           <folding>
             <element signature="e#0#10#0" expanded="true" />
           </folding>
         </state>
       </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/podcasts.yml">
+      <provider selected="true" editor-type-id="text-editor" />
     </entry>
   </component>
   <component name="masterDetails">
