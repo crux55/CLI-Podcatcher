@@ -19,8 +19,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/CLIPodcaster.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="393">
-              <caret line="46" column="17" selection-start-line="46" selection-start-column="17" selection-end-line="46" selection-end-column="17" />
+            <state relative-caret-position="160">
+              <caret line="97" column="27" selection-start-line="97" selection-start-column="27" selection-end-line="97" selection-end-column="27" />
               <folding>
                 <element signature="e#0#10#0" expanded="true" />
               </folding>
@@ -122,6 +122,7 @@
       <find>encode</find>
       <find>YoutubeDL</find>
       <find>Downloa</find>
+      <find>print</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -177,7 +178,7 @@
     <property name="GO_FMT" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1555889406666" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1555890545410" />
     <property name="go.gopath.indexing.explicitly.defined" value="true" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
@@ -259,7 +260,7 @@
       <workItem from="1554591043416" duration="144000" />
       <workItem from="1554638631817" duration="700000" />
       <workItem from="1554640931412" duration="3634000" />
-      <workItem from="1555841375531" duration="10555000" />
+      <workItem from="1555841375531" duration="10985000" />
     </task>
     <task id="LOCAL-00001" summary="Added the framework to support youtube playlists">
       <created>1554640837782</created>
@@ -352,11 +353,25 @@
       <option name="project" value="LOCAL" />
       <updated>1555888371389</updated>
     </task>
-    <option name="localTasksCounter" value="14" />
+    <task id="LOCAL-00014" summary="reducing pointless logging">
+      <created>1555889464498</created>
+      <option name="number" value="00014" />
+      <option name="presentableId" value="LOCAL-00014" />
+      <option name="project" value="LOCAL" />
+      <updated>1555889464498</updated>
+    </task>
+    <task id="LOCAL-00015" summary="Null check on URL">
+      <created>1555889910702</created>
+      <option name="number" value="00015" />
+      <option name="presentableId" value="LOCAL-00015" />
+      <option name="project" value="LOCAL" />
+      <updated>1555889910702</updated>
+    </task>
+    <option name="localTasksCounter" value="16" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="42174000" />
+    <option name="totallyTimeSpent" value="42604000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="0" width="1440" height="900" extended-state="0" />
@@ -412,7 +427,9 @@
     <MESSAGE value="Adding encoding" />
     <MESSAGE value="Reverted all podcasts" />
     <MESSAGE value="more encoding" />
-    <option name="LAST_COMMIT_MESSAGE" value="more encoding" />
+    <MESSAGE value="reducing pointless logging" />
+    <MESSAGE value="Null check on URL" />
+    <option name="LAST_COMMIT_MESSAGE" value="Null check on URL" />
   </component>
   <component name="editorHistoryManager">
     <entry file="file://$PROJECT_DIR$/podcastEntry.py">
@@ -490,8 +507,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/CLIPodcaster.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="393">
-          <caret line="46" column="17" selection-start-line="46" selection-start-column="17" selection-end-line="46" selection-end-column="17" />
+        <state relative-caret-position="160">
+          <caret line="97" column="27" selection-start-line="97" selection-start-column="27" selection-end-line="97" selection-end-column="27" />
           <folding>
             <element signature="e#0#10#0" expanded="true" />
           </folding>

@@ -10,10 +10,6 @@ from logger import Logger
 from pathlib import Path
 from config_reader import Config
 
-from youtubedl import YoutubeDL
-
-from pprint import pprint
-
 logger = Logger()
 config = Config()
 
@@ -99,7 +95,7 @@ if __name__ == '__main__':
         for i in range((offSet - 1), numberToGet + (offSet - 1)):
             episode = show.items[i]
             if episode.enclosure_url is not None:
-                print(episode.enclosure_url)
+                logger.log(episode.enclosure_url)
                 link = episode.enclosure_url.encode('ascii', 'ignore').decode('ascii')
                 title = episode.title.replace("–", "-").encode('ascii', 'ignore').decode('ascii')
                 summary = episode.itunes_summary
