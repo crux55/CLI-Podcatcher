@@ -16,6 +16,7 @@ class YoutubeDL:
         }
         downloadMusicOptions = {
             'format': 'bestaudio/best',
+            'outtmpl': '%(title)s.%(ext)s',
             'postprocessors': [{
                 'key': 'FFmpegExtractAudio',
                 'preferredcodec': 'mp3',
@@ -29,25 +30,11 @@ class YoutubeDL:
             for key, value in doc.items():
                 youtubeEntity = YoutubeEntity("https://www.youtube.com/playlist?list=PL-6ISBgjHD2GqZ4O2P8422CQulhUPwbC8", "non",
                                               3, 5)
-                with youtube_dl.YoutubeDL(infoOptions) as ydlInfo:
+                with youtube_dl.YoutubeDL(downloadMusicOptions) as ydlInfo:
                     playList = ydlInfo.extract_info(youtubeEntity.url)
-                    print(playList)
+                    # print(playList)
                     video_url = playList.get("url", None)
                     video_id = playList.get("id", None)
                     video_title = playList.get('title', None)
                     tracks = playList.get("entries")
-                    for track in tracks:
-                        print("Title %s " % track["title"])
-                        print("URL %s " % track["webpage_url"])
-                        with youtube_dl.YoutubeDL(downloadMusicOptions) as ydlMusic:
-                            ydlMusic.download([track["webpage_url"]])
-                            # formats_ = track['formats']
-                            # for fr in formats_:
-                            #     print(fr['ext'])
-                            #     if fr['ext'] == 'webm':
-                            #         totalFileSizes += fr['filesize']
-                    print("Size %s Gb" % (totalFileSizes) )
-                    return
-        # print("Track %s " % track)
-
 
