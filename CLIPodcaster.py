@@ -118,7 +118,7 @@ if __name__ == '__main__':
                 continue
 
             fileExtension = link.rpartition('.')[2]
-            fileName = config.BASE_URI + podcast.folderName + '/' + title.encode('utf8') + '.' + fileExtension
-            logger.log("Found episode with title %s" % title.encode('utf8'))
+            fileName = config.BASE_URI + podcast.folderName + '/' + str(title.encode('utf8')) + '.' + fileExtension
+            logger.log("Found episode with title %s" % str(title.encode('utf8')))
             logger.log(fileName)
             getPodcast(fileName, link)
