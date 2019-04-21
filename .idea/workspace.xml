@@ -12,15 +12,15 @@
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
   <component name="CoverageDataManager">
-    <SUITE FILE_PATH="coverage/CLI_Podcatcher$CLIPodcaster.coverage" NAME="CLIPodcaster Coverage Results" MODIFIED="1555883658696" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/CLI_Podcatcher$CLIPodcaster.coverage" NAME="CLIPodcaster Coverage Results" MODIFIED="1555886245029" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/CLIPodcaster.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="362">
-              <caret line="122" column="32" selection-start-line="122" selection-start-column="32" selection-end-line="122" selection-end-column="32" />
+            <state relative-caret-position="78">
+              <caret line="100" column="60" selection-start-line="100" selection-start-column="54" selection-end-line="100" selection-end-column="60" />
               <folding>
                 <element signature="e#0#10#0" expanded="true" />
               </folding>
@@ -177,7 +177,7 @@
     <property name="GO_FMT" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1555885808718" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1555887214239" />
     <property name="go.gopath.indexing.explicitly.defined" value="true" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
@@ -259,7 +259,7 @@
       <workItem from="1554591043416" duration="144000" />
       <workItem from="1554638631817" duration="700000" />
       <workItem from="1554640931412" duration="3634000" />
-      <workItem from="1555841375531" duration="9275000" />
+      <workItem from="1555841375531" duration="10084000" />
     </task>
     <task id="LOCAL-00001" summary="Added the framework to support youtube playlists">
       <created>1554640837782</created>
@@ -324,17 +324,31 @@
       <option name="project" value="LOCAL" />
       <updated>1555885568219</updated>
     </task>
-    <option name="localTasksCounter" value="10" />
+    <task id="LOCAL-00010" summary="Reverting to all podcasts">
+      <created>1555885833370</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1555885833370</updated>
+    </task>
+    <task id="LOCAL-00011" summary="Adding encoding">
+      <created>1555887069131</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1555887069131</updated>
+    </task>
+    <option name="localTasksCounter" value="12" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="40894000" />
+    <option name="totallyTimeSpent" value="41703000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="0" width="1440" height="900" extended-state="0" />
     <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.2639485" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.2639485" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Designer" order="2" />
       <window_info id="Image Layers" order="3" />
@@ -343,7 +357,7 @@
       <window_info id="Favorites" order="6" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" weight="0.32891566" />
-      <window_info anchor="bottom" id="Run" order="2" visible="true" weight="0.32891566" />
+      <window_info active="true" anchor="bottom" id="Run" order="2" visible="true" weight="0.32891566" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
@@ -380,7 +394,9 @@
     <MESSAGE value="Reverting encoding to none" />
     <MESSAGE value="removing hard and fast exit" />
     <MESSAGE value="Only adding podcast with error" />
-    <option name="LAST_COMMIT_MESSAGE" value="Only adding podcast with error" />
+    <MESSAGE value="Reverting to all podcasts" />
+    <MESSAGE value="Adding encoding" />
+    <option name="LAST_COMMIT_MESSAGE" value="Adding encoding" />
   </component>
   <component name="editorHistoryManager">
     <entry file="file://$PROJECT_DIR$/podcastEntry.py">
@@ -451,8 +467,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/CLIPodcaster.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="362">
-          <caret line="122" column="32" selection-start-line="122" selection-start-column="32" selection-end-line="122" selection-end-column="32" />
+        <state relative-caret-position="78">
+          <caret line="100" column="60" selection-start-line="100" selection-start-column="54" selection-end-line="100" selection-end-column="60" />
           <folding>
             <element signature="e#0#10#0" expanded="true" />
           </folding>
