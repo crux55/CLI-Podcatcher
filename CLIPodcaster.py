@@ -99,7 +99,7 @@ if __name__ == '__main__':
         for i in range((offSet - 1), numberToGet + (offSet - 1)):
             episode = show.items[i]
             link = episode.enclosure_url
-            title = episode.title.replace("–", "-").encode("utf-8")# replace utf-8 symbol (ndash) to ascii (-)
+            title = episode.title.replace("–", "-")# replace utf-8 symbol (ndash) to ascii (-)
             summary = episode.itunes_summary
 
             if link is None:
@@ -118,7 +118,7 @@ if __name__ == '__main__':
                 continue
 
             fileExtension = link.rpartition('.')[2]
-            fileName = config.BASE_URI + podcast.folderName + '/' + title + '.' + fileExtension
-            logger.log("Found episode with title %s" % title)
+            fileName = config.BASE_URI + podcast.folderName + '/' + title.encode('utf8') + '.' + fileExtension
+            logger.log("Found episode with title %s" % title.encode('utf8'))
             logger.log(fileName)
             getPodcast(fileName, link)
