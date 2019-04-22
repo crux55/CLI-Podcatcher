@@ -10,10 +10,6 @@ from logger import Logger
 from pathlib import Path
 from config_reader import Config
 
-from youtubedl import YoutubeDL
-
-from pprint import pprint
-
 logger = Logger()
 config = Config()
 
@@ -41,10 +37,10 @@ def getPodcast(fileName, url):
                 f.write(data)
                 done = int(100 * dl / total_length)
                 if done > lastDone:
-                    logger.log("%s done" % done)
+                    #logger.log("%s done" % done)
                     lastDone = done
-                sys.stdout.write("\r[%s done]" % (done) )
-                sys.stdout.flush()
+                #sys.stdout.write("\r[%s done]" % (done) )
+                #sys.stdout.flush()
             os.rename(tmpFileName, fileName)
             downloadedFiles.append(fileName)
 
@@ -98,27 +94,29 @@ if __name__ == '__main__':
 
         for i in range((offSet - 1), numberToGet + (offSet - 1)):
             episode = show.items[i]
-            link = episode.enclosure_url
-            title = episode.title.replace("–", "-")# replace utf-8 symbol (ndash) to ascii (-)
-            summary = episode.itunes_summary
+            if episode.enclosure_url is not None:
+                logger.log(episode.enclosure_url)
+                link = episode.enclosure_url.encode('ascii', 'ignore').decode('ascii')
+                title = episode.title.replace("–", "-").encode('ascii', 'ignore').decode('ascii')
+                summary = episode.itunes_summary
 
-            if link is None:
-                logger.log("An issue had been found whereby this episode has no link to a file. "
-                           "It may be a section used for a description. Please white list this"
-                           "%s" % vars(episode))
-                continue
+                if link is None:
+                    logger.log("An issue had been found whereby this episode has no link to a file. "
+                               "It may be a section used for a description. Please white list this"
+                               "%s" % vars(episode))
+                    continue
 
-            logger.log("Episode info: [title:%s, link:%s]" % (title.encode('utf8'), link.encode('utf8')))
+                logger.log("Episode info: [title:%s, link:%s]" % (title, link))
 
-            if config.MAKE_FOLDERS and not Path(config.BASE_URI + podcast.folderName).exists():
-                logger.log("Path does not exist, creating")
-                os.makedirs(config.BASE_URI + podcast.folderName)
-            elif not config.MAKE_FOLDERS and not Path(config.BASE_URI + podcast.folderName).exists():
-                logger.log("Error: Folder did not exist and can not be created")
-                continue
+                if config.MAKE_FOLDERS and not Path(config.BASE_URI + podcast.folderName).exists():
+                    logger.log("Path does not exist, creating")
+                    os.makedirs(config.BASE_URI + podcast.folderName)
+                elif not config.MAKE_FOLDERS and not Path(config.BASE_URI + podcast.folderName).exists():
+                    logger.log("Error: Folder did not exist and can not be created")
+                    continue
 
-            fileExtension = link.rpartition('.')[2]
-            fileName = config.BASE_URI + podcast.folderName + '/' + str(title.encode('utf8')) + '.' + fileExtension
-            logger.log("Found episode with title %s" % str(title.encode('utf8')))
-            logger.log(fileName)
-            getPodcast(fileName, link)
+                fileExtension = link.rpartition('.')[2]
+                fileName = config.BASE_URI + podcast.folderName + '/' + str(title) + '.' + fileExtension
+                logger.log("Found episode with title %s" % str(title))
+                logger.log(fileName)
+                getPodcast(fileName, link)
