@@ -1,4 +1,3 @@
-import sys
 import yaml
 import os
 
@@ -54,16 +53,17 @@ def getListOfPodcasts():
     docs = yaml.safe_load_all(stream)
     for doc in docs:
         for key, value in doc.items():
-            if "offset" not in value:
-                voffset = 1
-            else:
-                #todo check lower limit
-                voffset = value["offset"]
-            if "fromStart" not in value:
-                fromStart = False
-            else:
-                fromStart = value[PODCAST_INDEX]["fromStart"]
-            pdcsts.append(PodcastEntry(value[PODCAST_INDEX]["amount"], value[PODCAST_INDEX]["url"], value[PODCAST_INDEX]["folderName"], voffset, fromStart))
+            for podcast in value:
+                if "offset" not in podcast:
+                    voffset = 1
+                else:
+                    #todo check lower limit
+                    voffset = podcast["offset"]
+                if "fromStart" not in podcast:
+                    fromStart = False # todo: test
+                else:
+                    fromStart = podcast["fromStart"]
+                pdcsts.append(PodcastEntry(podcast["amount"], podcast["url"], podcast["folderName"], voffset, fromStart))
     return pdcsts
 
 
@@ -95,7 +95,7 @@ if __name__ == '__main__':
             offSet = podcast.offset
 
         for i in range((offSet - 1), numberToGet + (offSet - 1)):
-            episode = show.items[i]
+            episode = show.items[i]#can check for null here
             if episode.enclosure_url is not None:
                 logger.log(episode.enclosure_url)
                 link = episode.enclosure_url.encode('ascii', 'ignore').decode('ascii')
