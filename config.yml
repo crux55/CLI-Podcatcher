@@ -1,2 +1,8 @@
 baseURI: ""
 makeFolders: false
+smtpServer:
+emailPassword:
+toEmailAddress:
+fromEmailAddress:
+allowEmails: true
+subject: "Music downloaded %s"
