@@ -15,6 +15,8 @@ config = Config()
 
 downloadedFiles = []
 
+PODCAST_INDEX=0
+
 
 def getPodcast(fileName, url):
     if Path(fileName).exists():
@@ -60,8 +62,8 @@ def getListOfPodcasts():
             if "fromStart" not in value:
                 fromStart = False
             else:
-                fromStart = value["fromStart"]
-            pdcsts.append(PodcastEntry(value["amount"], value["url"], value["folderName"], voffset, fromStart))
+                fromStart = value[PODCAST_INDEX]["fromStart"]
+            pdcsts.append(PodcastEntry(value[PODCAST_INDEX]["amount"], value[PODCAST_INDEX]["url"], value[PODCAST_INDEX]["folderName"], voffset, fromStart))
     return pdcsts
 
 
