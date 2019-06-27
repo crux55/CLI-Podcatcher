@@ -98,35 +98,3 @@ Podcasts:
     url: "http://progressiveastronaut.com/category/mixes/exclusive-podcast/feed/"
     amount: 5
     folderName: progressiveAstronaut
-
-YoutubePlaylists:
-  -
-    name: Progressive Astronaut
-    url: https://www.youtube.com/playlist?list=PL8jN8Git_i71y582Be6xC-ZXS2nUcLO_a
-    folder: progressive/progressive_astronaut
-    genere: Progressive
-  -
-    name: Progressive
-    url: progressive;https://www.youtube.com/playlist?list=PL-6ISBgjHD2GNtEuehJN9G_bsTdeYZms8
-    folder: progressive/progressive
-    genere: Progressive
-  -
-    name: Techno
-    url: https://www.youtube.com/playlist?list=PL-6ISBgjHD2ExtmeYo2fRbNXbflvj0E9X
-    folder: techno/techno
-    genere: Techno
-  -
-    name: Trance
-    url: trance;https://www.youtube.com/playlist?list=PL-6ISBgjHD2HYuGYW1yvJFpEIUCgfvzWZ
-    folder: trance/trance
-    genere: Trance
-  -
-    name: Pure Trance
-    url: https://www.youtube.com/playlist?list=PLiV42ZGjG8cUQHV86h8oTkfjeATpe4ARH
-    folder: trance/pure_trance
-    genere: Trance
-  -
-    name: Pure Trance
-    url: pure_progressive;https://www.youtube.com/playlist?list=PLiV42ZGjG8cUGr4ig47z9gxBNoD8ME9eU
-    folder: trance/pure_trance
-    genere: Trance
