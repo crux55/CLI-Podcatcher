@@ -14,24 +14,36 @@ class Emailer:
         self.smtpServer = config.EMAIL_SMTP_SERVER
         self.subject = config.SUBJECT
 
-    def sendEmail(self):
-        html = """\
+    def sendEmail(self, sections):
+        htmlHead = """\
         <html>
           <body>
             <p>Hi,<br>
-               How are you?<br>
-               <a href="http://www.realpython.com">Real Python</a> 
-               has many great tutorials.
+                Here is a list of downloaded music
             </p>
-          </body>
+            
+        """
+        htlmEnd = """
+        </body>
         </html>
         """
+
+        fullBodyText = htmlHead
+
+        for service in sections.keys():
+            for show in sections[service].keys():
+                for i in range(len(sections[service][show])):
+                    fullBodyText += service + show + sections[service][show][i]
+        # for i in range(len(sections)):
+        #     fullBodyText += sections[i]
+        # fullBodyText += htlmEnd
+
         message = MIMEMultipart("alternative")
         message["Subject"] = self.subject
         message["From"] = self.senderEmail
         message["To"] = self.receiverEmail
         # Turn these into plain/html MIMEText objects
-        part2 = MIMEText(html, "html")
+        part2 = MIMEText(fullBodyText, "html")
 
         # Add HTML/plain-text parts to MIMEMultipart message
         # The email client will try to render the last part first

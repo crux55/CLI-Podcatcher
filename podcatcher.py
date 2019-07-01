@@ -11,6 +11,7 @@ from DownloadLedger import DownloadLedger
 
 logger = Logger()
 config = Config()
+downloadLedger = DownloadLedger()
 
 downloadedFiles = []
 PODCAST_INDEX = 0
@@ -89,6 +90,7 @@ class Podcatcher:
             os.makedirs(config.BASE_URI + podcast.folderName)
         elif not config.MAKE_FOLDERS and not Path(config.BASE_URI + podcast.folderName).exists():
             logger.log("Error: Folder did not exist and can not be created")
+            downloadLedger.addDownload(downloadLedger.podcasts, podcast.folderName, title)#only for testing, do not leave here
             return
 
         fileExtension = link.rpartition('.')[2]
@@ -96,7 +98,7 @@ class Podcatcher:
         logger.log("Found episode with title %s" % str(title))
         logger.log(fileName)
         self.downloadPodcast(fileName, link)
-        DownloadLedger.addDownload(DownloadLedger.podcasts, title, link)
+        downloadLedger.addDownload(downloadLedger.podcasts, podcast.folderName, title)
 
 
     def getAllEpisodesForPodcast(self, podcast):
