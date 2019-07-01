@@ -11,6 +11,8 @@ class Config:
                     self.BASE_URI = value
                 if key == "makeFolders":
                     self.MAKE_FOLDERS = value
+                if key == "downloadedLedger":
+                    self.DOWNLOADED_LEDGER = value
                 if key == "allowEmails":
                     self.ALLOW_EMAILS = value
                 if key == "fromEmailAddress":

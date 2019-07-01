@@ -1,5 +1,6 @@
 baseURI: ""
 makeFolders: false
+downloadedLedger: podcastdownloads.txt
 smtpServer:
 emailPassword:
 toEmailAddress:
