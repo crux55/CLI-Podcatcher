@@ -43,9 +43,3 @@ class Emailer:
             server.login(self.receiverEmail, self.emailPassword)
             server.sendmail(
                 self.senderEmail, self.receiverEmail, message.as_string())
-
-
-
-
-
-
