@@ -96,7 +96,7 @@ class Podcatcher:
         logger.log("Found episode with title %s" % str(title))
         logger.log(fileName)
         self.downloadPodcast(fileName, link)
-	DownloadLedger.addDownload("", podcast, episode)
+        DownloadLedger.addDownload(DownloadLedger.podcasts, title, link)
 
 
     def getAllEpisodesForPodcast(self, podcast):
