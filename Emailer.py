@@ -21,9 +21,8 @@ class Emailer:
             <p>Hi,<br>
                 Here is a list of downloaded music
             </p>
-            
         """
-        htlmEnd = """
+        htlmEnd = """\
         </body>
         </html>
         """
@@ -31,9 +30,11 @@ class Emailer:
         fullBodyText = htmlHead
 
         for service in sections.keys():
+            fullBodyText += "<br><h1>" + service + "</h1>"
             for show in sections[service].keys():
+                fullBodyText += "<br><h2>" + show + "</h2>"
                 for i in range(len(sections[service][show])):
-                    fullBodyText += service + show + sections[service][show][i]
+                    fullBodyText += "\n" + sections[service][show][i]
         # for i in range(len(sections)):
         #     fullBodyText += sections[i]
         # fullBodyText += htlmEnd

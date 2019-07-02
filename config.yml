@@ -6,3 +6,4 @@ toEmailAddress:
 fromEmailAddress:
 allowEmails: true
 subject: "Music downloaded %s"
+downloadLedger: ledger.txt
