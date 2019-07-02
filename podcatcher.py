@@ -7,6 +7,7 @@ from config_reader import Config
 from logger import Logger
 from pathlib import Path
 from podcastEntry import PodcastEntry
+from DownloadLedger import DownloadLedger
 
 logger = Logger()
 config = Config()
@@ -95,6 +96,8 @@ class Podcatcher:
         logger.log("Found episode with title %s" % str(title))
         logger.log(fileName)
         self.downloadPodcast(fileName, link)
+        DownloadLedger.addDownload(DownloadLedger.podcasts, title, link)
+
 
     def getAllEpisodesForPodcast(self, podcast):
         offSet = 1
