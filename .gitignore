@@ -212,4 +212,5 @@ dmypy.json
 # End of https://www.gitignore.io/api/python,intellij
 .idea/
 config.yml
+podcasts.yml
 ledger.txt
