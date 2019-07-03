@@ -2,16 +2,17 @@ import yaml
 import os
 import requests
 from pyPodcastParser.Podcast import Podcast
-
 from config_reader import Config
 from logger import Logger
 from pathlib import Path
 from podcastEntry import PodcastEntry
 from DownloadLedger import DownloadLedger
+from DBA import DBA
 
 logger = Logger()
 config = Config()
 downloadLedger = DownloadLedger()
+dba = DBA()
 
 downloadedFiles = []
 PODCAST_INDEX = 0
@@ -46,25 +47,28 @@ class Podcatcher:
     def getListOfPodcasts(self):
         logger.log("Getting pod cast list")
         pdcsts = []
-        stream = open(PODCAST_FILE_NAME, "r")
-        docs = yaml.safe_load_all(stream)
-        for doc in docs:
-            for key, value in doc.items():
-                for podcast in value:
-                    if OFFSET_FIELD not in podcast:
-                        voffset = 1
-                    else:
-                        #todo check lower limit
-                        voffset = podcast[OFFSET_FIELD]
-                    if FROM_START_FIELD not in podcast:
-                        fromStart = False # todo: test
-                    else:
-                        fromStart = podcast[FROM_START_FIELD]
-                    pdcsts.append(PodcastEntry(podcast[AMOUNT_FIELD],
-                                               podcast[URL_FIELD],
-                                               podcast[FOLDER_NAME_FIELD],
-                                               voffset,
-                                               fromStart))
+        if config.CONFIG_ENABLED is "true":
+            stream = open(PODCAST_FILE_NAME, "r")
+            docs = yaml.safe_load_all(stream)
+            for doc in docs:
+                for key, value in doc.items():
+                    for podcast in value:
+                        if OFFSET_FIELD not in podcast:
+                            voffset = 1
+                        else:
+                            #todo check lower limit
+                            voffset = podcast[OFFSET_FIELD]
+                        if FROM_START_FIELD not in podcast:
+                            fromStart = False # todo: test
+                        else:
+                            fromStart = podcast[FROM_START_FIELD]
+                        pdcsts.append(PodcastEntry(podcast[AMOUNT_FIELD],
+                                                   podcast[URL_FIELD],
+                                                   podcast[FOLDER_NAME_FIELD],
+                                                   voffset,
+                                                   fromStart))
+        if config.DBA_ENABLED is "true":
+            pdcsts.append(dba.getAllPodcasts())
         return pdcsts
 
     def getRSS(self, link):
