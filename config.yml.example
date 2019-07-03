@@ -4,6 +4,17 @@ smtpServer:
 emailPassword:
 toEmailAddress:
 fromEmailAddress:
-allowEmails: true
+allowEmails: false
 subject: "Music downloaded %s"
 downloadLedger: ledger.txt
+dbaEnabled: false
+dba:
+configEnabled: false
+configLocation: config.yml
+copyConfigToDataBase: false
+removeOldConfig: false
+copyDatabaseToCondig: false
+name: ""
+password: ""
+host: "localhost"
+database: "Music"

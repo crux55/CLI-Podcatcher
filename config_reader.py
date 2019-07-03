@@ -25,3 +25,25 @@ class Config:
                     self.EMAIL_SMTP_SERVER = value
                 if key == "subject":
                     self.SUBJECT = value
+                if key == "dba":
+                    self.DBA = value
+                if key == "dbaEnabled":
+                    self.DBA_ENABLED = value
+                if key == "configEnabled":
+                    self.CONFIG_ENABLED = value
+                if key == "configLocation":
+                    self.CONFIG_LOCATION = value
+                if key == "copyConfigToDataBase":
+                    self.COPY_CONFIG_TO_DATABASE = value
+                if key == "removeOldConfig":
+                    self.REMOVE_OLD_CONFIG = value
+                if key == "copyDatabaseToConfig":
+                    self.COPY_DATABASE_TO_CONFIG = value
+                if key == "name":
+                    self.NAME = value
+                if key == "host":
+                    self.HOST = value
+                if key == "database":
+                    self.DATABASE = value
+                if key == "password":
+                    self.PASSWORD = value
