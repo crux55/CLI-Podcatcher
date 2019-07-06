@@ -7,10 +7,11 @@ class DBA:
 
     def __init__(self):
         config = Config()
-        if config is "postgres":
-            self.dba = DBApostgres()
-        if config is "sqlite3":
-            self.dba = DBAsqlite3()
+        self.dba = DBApostgres()
+        # if config.DBA in "postgres":
+        #     self.dba = DBApostgres()
+        # if config.DBA in "sqlite3":
+        #     self.dba = DBAsqlite3()
 
     def addPodcast(self, podcast):
         if self.getPodcastByName(podcast.name) is None:

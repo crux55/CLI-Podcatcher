@@ -14,8 +14,8 @@ if __name__ == '__main__':
     #read from config
     allPodcasts = podcatcher.getListOfPodcasts()
     for podcast in allPodcasts:
-        print("Name:" + podcast.name + " that points to: " + podcast.link)
-        if config.COPY_CONFIG_TO_DATABASE is "true":
+        print("Name:" + podcast.name + " that points to: " + podcast.url)
+        if config.COPY_CONFIG_TO_DATABASE is True:
             dba.addPodcast(podcast)
     podcatcher.getAllEpisodesForAllPodcasts()
     emailer.sendEmail(downloadLedger.getList())
