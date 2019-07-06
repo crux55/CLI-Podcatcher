@@ -1,11 +1,11 @@
 Podcasts:
   -
-    name: pureTrance
+    name: "Pure Trance"
     url: "https://www.thisisdistorted.com/repository/xml/SolarstonePureTrance1463143743.xml"
     amount: 5
     folderName: pure_trance
   -
-    name: crusades
+    name: "History Of The Crusades"
     url: "http://historyofthecrusades.podomatic.com/rss2.xml"
     amount: 10
     folderName: historyOfTheCrusades

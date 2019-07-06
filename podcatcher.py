@@ -5,9 +5,9 @@ from pyPodcastParser.Podcast import Podcast
 from config_reader import Config
 from logger import Logger
 from pathlib import Path
-from podcastEntry import PodcastEntry
 from DownloadLedger import DownloadLedger
 from DBA import DBA
+from PodcastEntity import PodcastEntity
 
 logger = Logger()
 config = Config()
@@ -16,6 +16,7 @@ dba = DBA()
 
 downloadedFiles = []
 PODCAST_INDEX = 0
+NAME_FIELD = "name"
 AMOUNT_FIELD = "amount"
 URL_FIELD = "url"
 FOLDER_NAME_FIELD = "folderName"
@@ -47,7 +48,7 @@ class Podcatcher:
     def getListOfPodcasts(self):
         logger.log("Getting pod cast list")
         pdcsts = []
-        if config.CONFIG_ENABLED is "true":
+        if config.CONFIG_ENABLED is True:
             stream = open(PODCAST_FILE_NAME, "r")
             docs = yaml.safe_load_all(stream)
             for doc in docs:
@@ -62,20 +63,23 @@ class Podcatcher:
                             fromStart = False # todo: test
                         else:
                             fromStart = podcast[FROM_START_FIELD]
-                        pdcsts.append(PodcastEntry(podcast[AMOUNT_FIELD],
+                        pdcsts.append(PodcastEntity(None, podcast[NAME_FIELD],
                                                    podcast[URL_FIELD],
-                                                   podcast[FOLDER_NAME_FIELD],
+                                                   podcast[AMOUNT_FIELD],
+                                                    podcast[FOLDER_NAME_FIELD],
                                                    voffset,
                                                    fromStart))
-        if config.DBA_ENABLED is "true":
-            pdcsts.append(dba.getAllPodcasts())
+        if config.DBA_ENABLED is True:
+            podcasts = dba.getAllPodcasts()
+            if len(podcasts) > 0:
+                pdcsts = pdcsts + podcasts
         return pdcsts
 
     def getRSS(self, link):
         response = requests.get(link)
         return Podcast(response.content)
 
-    def getEpisode(self, podcast, episode):
+    def getEpisode(self, podcast : PodcastEntity, episode):
         logger.log(episode.enclosure_url)
         link = episode.enclosure_url.encode('ascii', 'ignore').decode('ascii')
         title = episode.title.replace("–", "-").encode('ascii', 'ignore').decode('ascii')
@@ -105,12 +109,12 @@ class Podcatcher:
         downloadLedger.addDownload(downloadLedger.podcasts, podcast.folderName, title)
 
 
-    def getAllEpisodesForPodcast(self, podcast):
+    def getAllEpisodesForPodcast(self, podcast: PodcastEntity):
         offSet = 1
         numberToGet = 0
-        logger.log("Found podcast with URL %s and amount %d" % (podcast.link, podcast.amount))
+        logger.log("Found podcast with URL %s and amount %d" % (podcast.url, podcast.amount))
 
-        show = self.getRSS(podcast.link)
+        show = self.getRSS(podcast.url)
 
         if podcast.amount > 0:
             numberToGet = podcast.amount
