@@ -1,9 +1,20 @@
 baseURI: ""
 makeFolders: false
-smtpServer:
+smtpServer: smtp.zoho.com
 emailPassword:
 toEmailAddress:
 fromEmailAddress:
-allowEmails: true
+allowEmails: false
 subject: "Music downloaded %s"
 downloadLedger: ledger.txt
+dbaEnabled: true
+dba: postgres
+configEnabled: true
+configLocation: config.yml
+copyConfigToDataBase: true
+removeOldConfig: false
+copyDatabaseToCondig: false
+name:
+password:
+host:
+database:
