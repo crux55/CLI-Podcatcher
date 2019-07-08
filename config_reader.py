@@ -1,12 +1,17 @@
 import yaml
+from singleton.singleton import Singleton
+from logger import Logger
 
 
+@Singleton
 class Config:
-    def __init__(self):
-        stream = open("config.yml", "r")
+
+    def __init__(self, config_file="config.yml"):
+        stream = open(config_file)
         docs = yaml.safe_load_all(stream)
         for doc in docs:
-            for key,value in doc.items():
+            for key, value in doc.items():
+                Logger.debug("Found {0} with value {1}".format(key, value))
                 if key == "baseURI":
                     self.BASE_URI = value
                 if key == "makeFolders":

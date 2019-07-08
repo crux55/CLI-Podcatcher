@@ -1,6 +1,6 @@
-baseURI: "/Users/andrewquinn"
+baseURI: ""
 makeFolders: false
-smtpServer: smtp://zoho.com
+smtpServer: smtp.zoho.com
 emailPassword:
 toEmailAddress:
 fromEmailAddress:
@@ -14,7 +14,7 @@ configLocation: config.yml
 copyConfigToDataBase: true
 removeOldConfig: false
 copyDatabaseToCondig: false
-name: ""
-password: ""
-host: ""
-database: ""
+name:
+password:
+host:
+database:

@@ -1,21 +1,25 @@
 from config_reader import Config
+from logger import Logger
 
 
 class DownloadLedger:
 
+    config = Config.instance()
+
     def __init__(self):
-        config = Config()
         self.podcasts = "Podcasts"
-        self.podcastLedger = config.DOWNLOADED_LEDGER
+        self.podcastLedger = self.config.DOWNLOADED_LEDGER
         self.DELIMITER = "#!#"
 
     def addDownload(self, service, show, title):
         if service == self.podcasts:
+            Logger.debug("Adding podcast {0} :: {1} :: to download list")
             f = open(self.podcastLedger, "a")
             f.write(service + self.DELIMITER + show + self.DELIMITER + title + "\n")
             f.close()
 
     def getList(self):
+        Logger.debug("Getting shows from download ledger")
         serviceMap  = dict()
         f = open(self.podcastLedger, "r")
         if f.mode == 'r':
@@ -33,5 +37,6 @@ class DownloadLedger:
         return serviceMap
 
     def wipeLedger(self):
+        Logger.debug("Wiping download ledger")
         f = open(self.podcastLedger, 'r+')
         f.truncate(0) # need '0' when using r+
